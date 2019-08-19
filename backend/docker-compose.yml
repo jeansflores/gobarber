@@ -1,10 +1,9 @@
 version: '3.1'
 
 services:
-  db_gobarber:
+  db:
     image: postgres
-    container_name: postgres
-    restart: always
+    container_name: db_gobarber
     ports:
       - "5432:5432"
     environment:
