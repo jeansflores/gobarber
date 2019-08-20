@@ -1,12 +1,13 @@
+import { isBefore, parseISO, startOfHour } from 'date-fns';
 import * as Yup from 'yup';
-import { startOfHour, parseISO, isBefore } from 'date-fns';
+
 import Appointment from '../models/Appointment';
-import User from '../models/User';
 import File from '../models/File';
+import User from '../models/User';
 
 class AppointmentController {
   async index(req, res) {
-    const { page = 1 } = req.body;
+    const { page = 1 } = req.query;
 
     const appointments = await Appointment.findAll({
       where: {
