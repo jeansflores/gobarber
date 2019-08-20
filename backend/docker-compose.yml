@@ -1,11 +1,17 @@
 version: '3.1'
 
 services:
-  db:
+  db_postgres:
     image: postgres
-    container_name: db_gobarber
+    container_name: db_gobarber_postgres
     ports:
       - "5432:5432"
     environment:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=gobarber
+
+  db_mongo:
+    image: mongo
+    container_name: db_gobarber_mongo
+    ports:
+      - "27017:27017"
